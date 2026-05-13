@@ -5,7 +5,7 @@ description: America at 250 with the West Coast Wind Symphony. Concert details, 
 slug: west-coast-wind-symphony
 section: ensembles
 ---
-{% assign ensemble_events = site.data.events | where: "ensemble", page.title | sort: "date" %}
+{% assign ensemble_events = site.events | where_exp: "event", "event.published != false" | where: "ensemble", page.title | sort: "date" %}
 {% assign featured_event = ensemble_events | first %}
 <main class="page-main">
   <section class="page-hero">
@@ -17,7 +17,7 @@ section: ensembles
       </p>
       <div class="page-links">
         <a class="button button--primary" href="https://www.sbmusic.org/escb/westcoastwindsymphony" target="_blank" rel="noreferrer">Get Tickets</a>
-        <a class="button button--ghost" href="#concert-details">View Concert Details</a>
+        <a class="button button--ghost" href="{{ '/ensembles/west-coast-wind-symphony/#concert-details' | relative_url }}">View Concert Details</a>
       </div>
     </div>
   </section>
@@ -63,9 +63,9 @@ section: ensembles
     ensemble=page.title
     eyebrow="Ensemble calendar"
     heading="Events for the West Coast Wind Symphony."
-    description="This section is filtered from the same YAML feed that powers the main Events page."
+    description="This section is filtered from the same CMS-backed concert collection that powers the main Events page."
     empty_title="No West Coast Wind Symphony events are listed yet."
-    empty_copy="Add a matching event entry to the feed and it will appear here automatically."
+    empty_copy="Add a matching concert entry in the CMS and it will appear here automatically."
   %}
   <section class="section">
     <div class="container editorial-pair">

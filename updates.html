@@ -16,7 +16,7 @@ slug: updates
       {% if featured_post %}
         <div class="page-links">
           <a class="button button--primary" href="{{ featured_post.url | relative_url }}">Read Latest Post</a>
-          <a class="button button--ghost" href="#recent-posts">Browse Archive</a>
+          <a class="button button--ghost" href="{{ '/updates/#recent-posts' | relative_url }}">Browse Archive</a>
         </div>
       {% endif %}
     </div>

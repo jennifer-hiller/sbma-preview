@@ -1,4 +1,4 @@
-{% assign events = site.data.events | sort: "date" %}
+{% assign events = site.events | where_exp: "event", "event.published != false" | sort: "date" %}
 {% if include.ensemble %}
   {% assign events = events | where: "ensemble", include.ensemble %}
 {% endif %}
@@ -24,6 +24,11 @@
             <p class="meta-line">{{ event.time }} · {{ event.ensemble }}</p>
             <p class="meta-line">{{ event.address }}</p>
             <p>{{ event.description }}</p>
+            {% if event.ticket_url %}
+              <div class="page-links">
+                <a class="button button--ghost" href="{{ event.ticket_url }}" target="_blank" rel="noreferrer">Ticket Details</a>
+              </div>
+            {% endif %}
           </article>
         {% endfor %}
       </div>

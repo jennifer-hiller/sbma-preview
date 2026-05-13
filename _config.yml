@@ -4,6 +4,9 @@ baseurl: ""
 url: ""
 markdown: kramdown
 permalink: pretty
+collections:
+  events:
+    output: false
 defaults:
   - scope:
       path: ""
