@@ -696,6 +696,37 @@ body.page-el-segundo-brass-ensemble {
   margin-bottom: 0.75rem;
 }
 
+.event-program {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line);
+}
+
+.event-program ul {
+  display: grid;
+  gap: 0.85rem;
+  list-style: none;
+}
+
+.event-program li {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.event-program strong {
+  color: var(--text);
+}
+
+.event-program span {
+  color: var(--text-muted);
+}
+
+.event-program p {
+  font-size: 0.94rem;
+}
+
 .feature-card ul,
 .list-card ul,
 .support-list,

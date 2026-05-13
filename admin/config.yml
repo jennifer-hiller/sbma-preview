@@ -39,5 +39,14 @@ collections:
           - 'West Coast Wind Symphony'
       - { label: 'Address', name: 'address', widget: 'string' }
       - { label: 'Summary', name: 'description', widget: 'text' }
+      - label: 'Program Pieces'
+        name: 'pieces'
+        widget: 'list'
+        required: false
+        summary: '{{fields.title}} by {{fields.composer}}'
+        fields:
+          - { label: 'Piece Title', name: 'title', widget: 'string' }
+          - { label: 'Composer', name: 'composer', widget: 'string', required: false }
+          - { label: 'Piece Description', name: 'description', widget: 'text', required: false }
       - { label: 'Ticket URL', name: 'ticket_url', widget: 'string', required: false }
       - { label: 'Publish', name: 'published', widget: 'boolean', default: true }
