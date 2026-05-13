@@ -1,0 +1,31 @@
+---
+layout: default
+title: El Segundo Brass Ensemble
+description: Learn about the El Segundo Brass Ensemble and its role in the institution.
+slug: el-segundo-brass-ensemble
+section: ensembles
+---
+<main class="page-main">
+  <section class="page-hero">
+    <div class="container page-hero__content">
+      <p class="eyebrow">Ensemble</p>
+      <h1>El Segundo Brass Ensemble</h1>
+      <p>A brass-centered chamber voice that extends the institution's musical reach through focused repertoire and compact public programs.</p>
+    </div>
+  </section>
+  {% include events-feed.html
+    section_class="section--soft"
+    ensemble=page.title
+    eyebrow="Upcoming events"
+    heading="Current events for the El Segundo Brass Ensemble."
+    description="Only events tagged to this ensemble in the shared feed appear on this page."
+    empty_title="No El Segundo Brass Ensemble events are listed yet."
+    empty_copy="Add a matching ensemble event to the YAML feed and it will surface here automatically."
+  %}
+  <section class="section">
+    <div class="container note-panel">
+      <h3>Musical profile</h3>
+      <p>The ensemble strengthens the institution's chamber-scale programming and reinforces the sense of season-long variety.</p>
+    </div>
+  </section>
+</main>

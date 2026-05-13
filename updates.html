@@ -1,0 +1,74 @@
+---
+layout: default
+title: Updates
+description: Recent updates, season notes, and institutional news from South Bay Music.
+slug: updates
+---
+{% assign featured_post = site.posts.first %}
+<main class="page-main">
+  <section class="page-hero">
+    <div class="container page-hero__content">
+      <p class="eyebrow">Journal</p>
+      <h1>Season notes, rehearsal life, and institutional news.</h1>
+      <p>
+        A true blog archive for South Bay Music, built around published posts rather than static editorial placeholders.
+      </p>
+      {% if featured_post %}
+        <div class="page-links">
+          <a class="button button--primary" href="{{ featured_post.url | relative_url }}">Read Latest Post</a>
+          <a class="button button--ghost" href="#recent-posts">Browse Archive</a>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+  {% if featured_post %}
+    <section class="section">
+      <div class="container quote-grid">
+        <article class="embed-shell">
+          <p class="eyebrow">Latest post</p>
+          <h3>{{ featured_post.title }}</h3>
+          <p class="meta-line">{{ featured_post.date | date: "%B %-d, %Y" }}{% if featured_post.category %} · {{ featured_post.category }}{% endif %}</p>
+          <p>{{ featured_post.description }}</p>
+          <div class="page-links">
+            <a class="button button--primary" href="{{ featured_post.url | relative_url }}">Read the article</a>
+          </div>
+        </article>
+        <article class="quote-block">
+          <blockquote>
+            This page now runs as a real publishing archive, with individual post pages and a rolling index generated from Jekyll posts.
+          </blockquote>
+          <p>New writing can be added by dropping dated Markdown files into <code>_posts/</code>.</p>
+        </article>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="section section--soft" id="recent-posts">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Recent posts</p>
+        <h2>Published writing from South Bay Music.</h2>
+        <p>The Updates page now lists actual posts, newest first, with dedicated URLs for each article.</p>
+      </div>
+
+      {% if site.posts.size > 0 %}
+        <div class="article-grid">
+          {% for post in site.posts %}
+            <article class="article-card">
+              <p class="kicker">{{ post.category | default: "Update" }}</p>
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              <p class="meta-line">{{ post.date | date: "%B %-d, %Y" }}</p>
+              <p>{{ post.description }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      {% else %}
+        <article class="note-panel">
+          <h3>No posts published yet.</h3>
+          <p>Create a Markdown file in <code>_posts/</code> to begin publishing updates.</p>
+        </article>
+      {% endif %}
+    </div>
+  </section>
+</main>

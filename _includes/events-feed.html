@@ -1,0 +1,37 @@
+{% assign events = site.data.events | sort: "date" %}
+{% if include.ensemble %}
+  {% assign events = events | where: "ensemble", include.ensemble %}
+{% endif %}
+
+<section class="section{% if include.section_class %} {{ include.section_class }}{% endif %}">
+  <div class="container">
+    <div class="section-heading">
+      {% if include.eyebrow %}
+        <p class="eyebrow">{{ include.eyebrow }}</p>
+      {% endif %}
+      <h2>{{ include.heading }}</h2>
+      {% if include.description %}
+        <p>{{ include.description }}</p>
+      {% endif %}
+    </div>
+
+    {% if events.size > 0 %}
+      <div class="event-grid">
+        {% for event in events %}
+          <article class="event-card">
+            <p class="kicker">{{ event.date | date: "%B %-d, %Y" }}</p>
+            <h3>{{ event.title }}</h3>
+            <p class="meta-line">{{ event.time }} · {{ event.ensemble }}</p>
+            <p class="meta-line">{{ event.address }}</p>
+            <p>{{ event.description }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <article class="note-panel">
+        <h3>{{ include.empty_title | default: "No events are currently listed." }}</h3>
+        <p>{{ include.empty_copy | default: "Check back soon for upcoming performances and public gatherings." }}</p>
+      </article>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,149 @@
+---
+layout: default
+title: West Coast Wind Symphony
+description: America at 250 with the West Coast Wind Symphony. Concert details, program notes, and ticket information.
+slug: west-coast-wind-symphony
+section: ensembles
+---
+{% assign ensemble_events = site.data.events | where: "ensemble", page.title | sort: "date" %}
+{% assign featured_event = ensemble_events | first %}
+<main class="page-main">
+  <section class="page-hero">
+    <div class="container page-hero__content">
+      <p class="eyebrow">Featured concert</p>
+      <h1>America at 250</h1>
+      <p>
+        West Coast Wind Symphony presents a full evening of American composers, from John Williams and Leonard Bernstein to George Gershwin and David Maslanka.
+      </p>
+      <div class="page-links">
+        <a class="button button--primary" href="https://www.sbmusic.org/escb/westcoastwindsymphony" target="_blank" rel="noreferrer">Get Tickets</a>
+        <a class="button button--ghost" href="#concert-details">View Concert Details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--contrast" id="concert-details">
+    <div class="container section-stack">
+      <div class="cta-band">
+        <div>
+          <p class="eyebrow">One-night event</p>
+          <h2>{{ featured_event.date | date: "%A, %B %-d" }} at {{ featured_event.time }}</h2>
+          <p>
+            {{ featured_event.address }}.
+          </p>
+        </div>
+        <div class="cta-band__actions">
+          <a class="button button--light" href="https://www.sbmusic.org/escb/westcoastwindsymphony" target="_blank" rel="noreferrer">Buy Tickets</a>
+          <a class="button button--ghost" href="{{ '/events/' | relative_url }}">See All Events</a>
+        </div>
+      </div>
+
+      <div class="support-grid">
+        <article class="list-card">
+          <h3>Main event</h3>
+          <p>{{ featured_event.description }}</p>
+        </article>
+        <article class="list-card">
+          <h3>VIP access</h3>
+          <p>VIP ticket holders may attend the pre-concert lecture and should arrive by 6:00 PM for early entry.</p>
+        </article>
+        <article class="list-card">
+          <h3>Venue</h3>
+          <p>Presented in Redondo Beach at the Redondo Union High School Auditorium.</p>
+        </article>
+        <article class="list-card">
+          <h3>Primary action</h3>
+          <p>This page is designed to move visitors directly to ticket purchase while giving enough program context to convert interest.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {% include events-feed.html
+    ensemble=page.title
+    eyebrow="Ensemble calendar"
+    heading="Events for the West Coast Wind Symphony."
+    description="This section is filtered from the same YAML feed that powers the main Events page."
+    empty_title="No West Coast Wind Symphony events are listed yet."
+    empty_copy="Add a matching event entry to the feed and it will appear here automatically."
+  %}
+  <section class="section">
+    <div class="container editorial-pair">
+      <div class="editorial-pair__copy">
+        <div class="section-heading">
+          <p class="eyebrow">Program overview</p>
+          <h2>An American program with scale, sweep, and breadth.</h2>
+          <p>
+            To mark 250 years since the founding of the United States, the program moves from fanfare to Broadway, from Carnegie Hall to one of the wind repertoire’s most searching symphonic works.
+          </p>
+        </div>
+        <div class="timeline-list">
+          <ul>
+            <li>
+              <strong>Summon the Heroes</strong>
+              <p>John Williams opens the evening with a bright ceremonial fanfare.</p>
+            </li>
+            <li>
+              <strong>Symphonic Dances from West Side Story</strong>
+              <p>Leonard Bernstein brings theatrical energy and rhythmic edge to the center of the program.</p>
+            </li>
+            <li>
+              <strong>Rhapsody in Blue</strong>
+              <p>George Gershwin carries the audience from Broadway to Carnegie Hall with one of America’s defining concert works.</p>
+            </li>
+            <li>
+              <strong>Symphony No. 4</strong>
+              <p>David Maslanka’s tragic and beautiful symphony anchors the evening with hymn material, spiritual depth, and a Lincoln-inspired emotional arc.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="editorial-pair__media">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Royal%20Philharmonic%20Orchestra%20at%20Carnegie%20Hall.jpg"
+          alt="Concert ensemble performing on stage"
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container split-grid">
+      <article class="note-panel">
+        <p class="eyebrow">Pre-concert lecture</p>
+        <h3>Early-entry program notes and conversation.</h3>
+        <p>
+          Presented by Stacy Cabrera with special guest Steven Allen Fox. VIP ticket holders are welcome to attend the lecture before the concert begins.
+        </p>
+      </article>
+      <article class="note-panel">
+        <p class="eyebrow">Artistic leadership</p>
+        <h3>Steven Allen Fox with the West Coast Wind Symphony.</h3>
+        <p>
+          Steven Allen Fox serves as conductor, with Matthew Visk as assistant conductor and Andres Cabrera as symphony manager.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container quote-grid">
+      <article class="quote-block">
+        <blockquote>
+          “The group is polished, warm and altogether, well, together. A feast for the ear!”
+        </blockquote>
+        <footer>Rich Capparela, KUSC</footer>
+      </article>
+      <article class="embed-shell">
+        <h3>Ready to attend?</h3>
+        <p>
+          Seats for <em>America at 250</em> are the primary focus of this page. Use the ticket link below to move directly into the purchase flow.
+        </p>
+        <div class="page-links">
+          <a class="button button--primary" href="https://www.sbmusic.org/escb/westcoastwindsymphony" target="_blank" rel="noreferrer">Get Tickets</a>
+          <a class="button button--ghost" href="{{ '/support/' | relative_url }}">Support the Season</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>

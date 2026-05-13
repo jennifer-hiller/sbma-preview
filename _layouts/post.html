@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<main class="page-main">
+  <section class="page-hero">
+    <div class="container page-hero__content">
+      <p class="eyebrow">{{ page.category | default: "Update" }}</p>
+      <h1>{{ page.title }}</h1>
+      <p>{{ page.description }}</p>
+      <div class="page-links">
+        <a class="button button--primary" href="{{ '/updates/' | relative_url }}">Back to Updates</a>
+        <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container post-shell">
+      <article class="post-body">
+        {{ content }}
+      </article>
+      <aside class="post-sidebar">
+        <article class="note-panel">
+          <p class="eyebrow">Published</p>
+          <h3>{{ page.date | date: "%B %-d, %Y" }}</h3>
+          <p>{{ page.author | default: "South Bay Music Editorial Team" }}</p>
+        </article>
+        <article class="note-panel">
+          <p class="eyebrow">Category</p>
+          <h3>{{ page.category | default: "Institutional update" }}</h3>
+          <p>Recent writing on rehearsal life, season planning, and the institution's public work.</p>
+        </article>
+      </aside>
+    </div>
+  </section>
+</main>

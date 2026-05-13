@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  </head>
+  <body class="page-{{ page.slug | default: 'default' }}">
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Primary">
+        <div class="container site-nav__inner">
+          <a class="brand" href="{{ '/' | relative_url }}">South Bay Music</a>
+
+          <div class="site-nav__links site-nav__links--desktop" aria-label="Desktop navigation">
+            <a href="{{ '/about/' | relative_url }}" {% if page.slug == "about" %}aria-current="page"{% endif %}>About</a>
+            <a href="{{ '/impact/' | relative_url }}" {% if page.slug == "impact" %}aria-current="page"{% endif %}>Impact</a>
+            <a href="{{ '/ensembles/' | relative_url }}" {% if page.slug == "ensembles" or page.section == "ensembles" %}aria-current="page"{% endif %}>Ensembles</a>
+            <a href="{{ '/support/' | relative_url }}" {% if page.slug == "support" %}aria-current="page"{% endif %}>Support</a>
+            <a href="{{ '/events/' | relative_url }}" {% if page.slug == "events" %}aria-current="page"{% endif %}>Events</a>
+            <a href="{{ '/updates/' | relative_url }}" {% if page.slug == "updates" or page.section == "updates" %}aria-current="page"{% endif %}>Updates</a>
+            <a href="{{ '/shop/' | relative_url }}" {% if page.slug == "shop" %}aria-current="page"{% endif %}>Shop</a>
+          </div>
+
+          <div class="site-nav__actions">
+            <a class="button button--ghost button--small" href="{{ '/support/' | relative_url }}">Become a Patron</a>
+            <a class="button button--primary button--small" href="{{ '/donate/' | relative_url }}">Donate</a>
+          </div>
+
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            data-menu-toggle
+          >
+            <span class="sr-only">Toggle navigation menu</span>
+            <span class="menu-toggle__bar" aria-hidden="true"></span>
+            <span class="menu-toggle__bar" aria-hidden="true"></span>
+            <span class="menu-toggle__bar" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu" hidden data-mobile-menu>
+          <div class="container mobile-menu__inner">
+            <a href="{{ '/about/' | relative_url }}">About</a>
+            <a href="{{ '/impact/' | relative_url }}">Impact</a>
+            <a href="{{ '/ensembles/' | relative_url }}">Ensembles</a>
+            <a href="{{ '/support/' | relative_url }}">Support</a>
+            <a href="{{ '/events/' | relative_url }}">Events</a>
+            <a href="{{ '/updates/' | relative_url }}">Updates</a>
+            <a href="{{ '/press/' | relative_url }}">Press</a>
+            <a href="{{ '/shop/' | relative_url }}">Shop</a>
+            <a class="button button--ghost button--block" href="{{ '/support/' | relative_url }}">Become a Patron</a>
+            <a class="button button--primary button--block" href="{{ '/donate/' | relative_url }}">Donate</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    {{ content }}
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-block footer-block--brand">
+          <p class="eyebrow">South Bay Music Association</p>
+          <h2>A public home for music in the South Bay.</h2>
+          <p>
+            Patron support sustains performances, ensembles, and the regional music life that gathers around them.
+          </p>
+          <div class="footer-actions">
+            <a class="button button--light button--small" href="{{ '/support/' | relative_url }}">Become a Patron</a>
+            <a class="button button--primary button--small" href="{{ '/donate/' | relative_url }}">Donate</a>
+          </div>
+        </div>
+
+        <div class="footer-block">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+            <li><a href="{{ '/impact/' | relative_url }}">Impact</a></li>
+            <li><a href="{{ '/ensembles/' | relative_url }}">Ensembles</a></li>
+            <li><a href="{{ '/events/' | relative_url }}">Events</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-block">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="{{ '/support/' | relative_url }}">Patronage</a></li>
+            <li><a href="{{ '/donate/' | relative_url }}">Donate</a></li>
+            <li><a href="{{ '/shop/' | relative_url }}">Shop</a></li>
+            <li><a href="{{ '/press/' | relative_url }}">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-block">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noreferrer">YouTube</a></li>
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Facebook</a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a></li>
+            <li><a href="mailto:hello@southbaymusic.org">hello@southbaymusic.org</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container site-footer__meta">
+        <p>&copy; {{ "now" | date: "%Y" }} South Bay Music Association. All rights reserved.</p>
+        <p>Serving ensemble players, audiences, and patrons across the South Bay.</p>
+      </div>
+    </footer>
+
+    <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  </body>
+</html>

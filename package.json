@@ -1,0 +1,12 @@
+{
+  "name": "sbma-preview",
+  "private": true,
+  "scripts": {
+    "build": "bundle exec jekyll build",
+    "deploy": "wrangler deploy",
+    "deploy:preview": "wrangler versions upload"
+  },
+  "devDependencies": {
+    "wrangler": "4.84.0"
+  }
+}

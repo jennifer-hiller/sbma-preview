@@ -1,0 +1,31 @@
+title: SB Music
+description: Single-page music program site
+baseurl: ""
+url: ""
+markdown: kramdown
+permalink: pretty
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      section: updates
+      permalink: /updates/:title/
+exclude:
+  - wrangler.jsonc
+  - node_modules
+  - package-lock.json
+  - pnpm-lock.yaml
+  - package.json
+  - pnpm-workspace.yaml
+  - postcss.config.mjs
+  - vite.config.ts
+  - default_shadcn_theme.css
+  - src
+  - docs
+  - guidelines
+  - .git
+  - .jekyll-cache
+  - README.md
+  - ATTRIBUTIONS.md
