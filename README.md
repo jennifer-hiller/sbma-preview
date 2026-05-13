@@ -59,3 +59,22 @@ env npm_config_cache=/tmp/npm-cache npx wrangler deploy --dry-run
 - Expected behavior:
   Wrangler reads the built `_site` directory as the asset output.
   Run the Jekyll build before deploys so `_site` is current.
+
+## Netlify build hook fallback
+
+This repo includes a GitHub Actions workflow that triggers a Netlify build hook
+on every push to `main`. Use it if Netlify's normal GitHub webhook stops
+creating deploys after CMS publishes.
+
+Setup:
+
+1. In Netlify, open the site.
+2. Go to **Project configuration** → **Build & deploy** → **Build hooks**.
+3. Create a build hook for the `main` branch.
+4. Copy the hook URL.
+5. In GitHub, open the repo.
+6. Go to **Settings** → **Secrets and variables** → **Actions**.
+7. Add a repository secret named `NETLIFY_BUILD_HOOK_URL` with the hook URL.
+
+After the secret exists, every push to `main`, including Decap CMS publishes,
+will run `.github/workflows/trigger-netlify-build.yml` and POST to Netlify.
